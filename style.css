@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, "Tahoma", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            #18375c 0%,
+            #0b1729 35%,
+            #050911 70%,
+            #020409 100%
+        );
+
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* الإضاءة */
+
+.glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.15;
+
+    pointer-events: none;
+}
+
+.glow-one {
+    background: #229ed9;
+    top: -150px;
+    right: -100px;
+}
+
+.glow-two {
+    background: #8c6b25;
+    bottom: -180px;
+    left: -100px;
+}
+
+
+/* المحتوى */
+
+main {
+    width: min(900px, 92%);
+    margin: auto;
+}
+
+
+/* Hero */
+
+.hero {
+    min-height: 65vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 70px 10px 40px;
+}
+
+
+.badge {
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    background: rgba(212, 175, 55, 0.06);
+
+    color: #d8bd67;
+
+    padding: 9px 18px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    margin-bottom: 28px;
+
+    backdrop-filter: blur(10px);
+}
+
+
+h1 {
+    font-size: clamp(34px, 6vw, 64px);
+
+    line-height: 1.25;
+
+    font-weight: 800;
+
+    max-width: 800px;
+}
+
+
+h1 span {
+    display: block;
+
+    margin-top: 8px;
+
+    background: linear-gradient(
+        90deg,
+        #927029,
+        #f3d477,
+        #a77d2d
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.hero p {
+    max-width: 650px;
+
+    margin-top: 25px;
+
+    color: #9eabbc;
+
+    font-size: 17px;
+
+    line-height: 2;
+}
+
+
+.hero strong {
+    color: #229ed9;
+}
+
+
+.arrow {
+    margin-top: 45px;
+
+    font-size: 30px;
+
+    color: #d4af37;
+
+    animation: down 1.5s infinite;
+}
+
+
+@keyframes down {
+
+    0%, 100% {
+        transform: translateY(0);
+        opacity: .5;
+    }
+
+    50% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+
+}
+
+
+/* الكروت */
+
+.groups {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+    padding: 20px 0 70px;
+}
+
+
+.group-card {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 25px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(15px);
+
+    transition: .35s ease;
+
+    overflow: hidden;
+}
+
+
+.group-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(34,158,217,.08),
+        transparent
+    );
+
+    transform: translateX(-100%);
+
+    transition: .5s;
+}
+
+
+.group-card:hover::before {
+    transform: translateX(100%);
+}
+
+
+.group-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(34,158,217,.5);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35),
+        0 0 30px rgba(34,158,217,.08);
+}
+
+
+/* Telegram */
+
+.telegram {
+    min-width: 70px;
+    height: 70px;
+
+    border-radius: 22px;
+
+    background: linear-gradient(
+        145deg,
+        #2bb5ef,
+        #1689c0
+    );
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 10px 30px rgba(34,158,217,.25);
+}
+
+
+.telegram span {
+    font-size: 34px;
+
+    transform: rotate(-10deg);
+}
+
+
+/* النص */
+
+.card-text {
+    flex: 1;
+}
+
+
+.card-text small {
+    color: #718197;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.card-text h2 {
+    margin-top: 5px;
+
+    font-size: 22px;
+}
+
+
+.card-text p {
+    margin-top: 7px;
+
+    color: #8996a8;
+
+    font-size: 13px;
+}
+
+
+.arrow-card {
+    font-size: 24px;
+
+    color: #64758c;
+
+    transition: .3s;
+}
+
+
+.group-card:hover .arrow-card {
+    color: #229ed9;
+
+    transform: translateX(-5px);
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+
+    padding: 0 0 30px;
+
+    color: #4e5a6b;
+
+    font-size: 12px;
+}
+
+
+/* الموبايل */
+
+@media (max-width: 650px) {
+
+    .hero {
+        min-height: 70vh;
+
+        padding-top: 50px;
+    }
+
+    .groups {
+        grid-template-columns: 1fr;
+    }
+
+    .group-card {
+        padding: 22px;
+    }
+
+    .telegram {
+        min-width: 60px;
+        height: 60px;
+    }
+
+}
